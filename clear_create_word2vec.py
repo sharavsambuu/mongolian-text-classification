@@ -1,4 +1,5 @@
 from clear_text_to_array import *
+from gensim.models import Word2Vec
 
 # корпусыг ачаалах
 filename = 'corpuses/ikon-news01.txt'
@@ -8,7 +9,6 @@ file.close()
 
 sentences = clear_text_to_array(text)
 
-from gensim.models import Word2Vec
 model = Word2Vec(sentences, min_count=1)
 model.save('model.bin')
 print('word2vec model is saved as gensim file format.')
