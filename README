@@ -14,8 +14,15 @@ http://adventuresinmachinelearning.com/gensim-word2vec-tutorial/
 1. Create word2vec from text
     > python3 clear_create_word2vec.py 
 
-2. Conver word2vec file to ids matrix as an numpy file format in order to use with tensorflow
+2. Convert word2vec file to ids matrix as an numpy file format in order to use with tensorflow
     > python3 numpy_embedding_matrix_tf.py
 
 3. Use embedding matrix with tensorflow 
     In progress...
+
+# TODOs
+
+1. Write some scrapers for ikon.mn
+2. Prepare training texts with its labels, label should be a type of news. For examples, politics, economy, society, health, world, technology etc
+3. Train them
+4. Try to classify text from other sites, for examples news.gogo.mn
