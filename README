@@ -12,6 +12,9 @@ http://adventuresinmachinelearning.com/gensim-word2vec-tutorial/
 ## perform sentimental analysis with lstms using tensorflow
 https://www.oreilly.com/learning/perform-sentiment-analysis-with-lstms-using-tensorflow
 
+## What does tf.nn.embedding_lookup function do?
+https://stackoverflow.com/questions/34870614/what-does-tf-nn-embedding-lookup-function-do
+
 # steps
 
 1. Create word2vec from text
