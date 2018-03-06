@@ -36,16 +36,18 @@ print("---------------------")
 print("Өгүүлбэр ")
 print(sentence_array)
 print("---------------------")
+
 # converting token sequence into sequence of ids
-token_ids = []
+sentence_in_tokenids = []
 for token in sentence_array:
     token_id = wordtoken_to_id(word2vec, token)
-    token_ids.append(token_id)
+    sentence_in_tokenids.append(token_id)
 print("id нуудын жагсаалт")
-print(token_ids)
+print(sentence_in_tokenids)
 
-
-
-#x = [[2.]]
-#m = tf.matmul(x, x)
-#print(m)
+# trying to convert sequence of vectors through tensorflow embedding lookup stuff.
+embeddings        = tf.constant(ids_matrix)
+ids               = tf.constant(sentence_in_tokenids)
+sequence_vectors = tf.nn.embedding_lookup(embeddings, ids)
+print("үгэн векторуудын жагсаалт тензор хэлбэрээр:")
+print(sequence_vectors)
