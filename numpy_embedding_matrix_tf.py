@@ -11,8 +11,7 @@ for i in range(len(model.wv.vocab)):
     if embedding_vector is not None:
         embedding_matrix[i] = embedding_vector
 
-print(embedding_matrix)
-
 np.save('ids_matrix', embedding_matrix)
-import pdb; pdb.set_trace()
+#import pdb; pdb.set_trace()
+print('embedded ids matrix is saved as an numpy file format.')
 

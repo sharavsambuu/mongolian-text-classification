@@ -1,0 +1,21 @@
+# resources
+
+## develop word embeddings python gensim
+https://machinelearningmastery.com/develop-word-embeddings-python-gensim/
+
+## how to clean text for machine learning with python
+https://machinelearningmastery.com/clean-text-machine-learning-python/
+
+## using gensim word2vec embeddings in tensorflow
+http://adventuresinmachinelearning.com/gensim-word2vec-tutorial/
+
+# steps
+
+1. Create word2vec from text
+    > python3 clear_create_word2vec.py 
+
+2. Conver word2vec file to ids matrix as an numpy file format in order to use with tensorflow
+    > python3 numpy_embedding_matrix_tf.py
+
+3. Use embedding matrix with tensorflow 
+    In progress...
