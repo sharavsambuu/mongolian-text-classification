@@ -107,3 +107,4 @@ venv.bak/
 .vscode
 model.bin
 quotes.json
+ids_matrix.npy

@@ -5,3 +5,6 @@ https://machinelearningmastery.com/develop-word-embeddings-python-gensim/
 
 ## how to clean text for machine learning with python
 https://machinelearningmastery.com/clean-text-machine-learning-python/
+
+## using gensim word2vec embeddings in tensorflow
+http://adventuresinmachinelearning.com/gensim-word2vec-tutorial/
