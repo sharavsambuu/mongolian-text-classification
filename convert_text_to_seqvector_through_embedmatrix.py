@@ -1,4 +1,5 @@
 from clear_text_to_array import *
+from wordtoken_to_id import *
 import numpy as np
 import tensorflow as tf
 import tensorflow.contrib.eager as tfe
@@ -9,29 +10,42 @@ tfe.enable_eager_execution()
 word2vec   = Word2Vec.load('model.bin')
 ids_matrix = np.load('ids_matrix.npy')
 
-input_sentence = "хоёр өдрийн уулзалтын үр дүнд дээд хэмжээний илчээ илгээсэн юм."
+input_sentence = "хоёр өдрийн уулзалтын үр дүнд дээд хэмжээний элчээ илгээсэн юм."
 
 sentence_array = clear_text_to_array(input_sentence)[0]
-print("Өгүүлбэр ")
+
 print("---------------------")
-print(sentence_array)
-print("---------------------")
-first_word  = sentence_array[0]
-second_word = sentence_array[1]
-last_word   = sentence_array[-1]
+first_word   = sentence_array[0]
+second_word  = sentence_array[1]
+last_word    = sentence_array[-1]
 first_index  = word2vec.wv.vocab[first_word ].index
 second_index = word2vec.wv.vocab[second_word].index
 last_index   = word2vec.wv.vocab[last_word  ].index
 print("эхний үг      : ", first_word , ", index : ", first_index )
 print("хоёрдугаар үг : ", second_word, ", index : ", second_index)
 print("сүүлийн үг    : ", last_word  , ", index : ", last_index  )
-#el = word2vec[sentence_array[0]]
-#print(el)
+print("нийт үгсийн тоо : ", len(word2vec.wv.vocab))
+print("---------------------")
+#print(word2vec.wv[last_word])
+if (np.array_equal(ids_matrix[last_index], word2vec.wv[last_word])):
+    print("YES, conversion to id sequence can be implemented through gensim word2vec object.")
+else:
+    print("NO")
 
 print("---------------------")
+print("Өгүүлбэр ")
+print(sentence_array)
+print("---------------------")
+# converting token sequence into sequence of ids
+token_ids = []
+for token in sentence_array:
+    token_id = wordtoken_to_id(word2vec, token)
+    token_ids.append(token_id)
+print("id нуудын жагсаалт")
+print(token_ids)
 
 
 
-x = [[2.]]
-m = tf.matmul(x, x)
-print(m)
+#x = [[2.]]
+#m = tf.matmul(x, x)
+#print(m)
