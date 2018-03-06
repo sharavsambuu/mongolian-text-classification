@@ -46,8 +46,8 @@ print("id нуудын жагсаалт")
 print(sentence_in_tokenids)
 
 # trying to convert sequence of vectors through tensorflow embedding lookup stuff.
-embeddings        = tf.constant(ids_matrix)
-ids               = tf.constant(sentence_in_tokenids)
+embeddings       = tf.constant(ids_matrix)
+ids              = tf.constant(sentence_in_tokenids)
 sequence_vectors = tf.nn.embedding_lookup(embeddings, ids)
 print("үгэн векторуудын жагсаалт тензор хэлбэрээр:")
 print(sequence_vectors)

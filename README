@@ -15,12 +15,15 @@ https://www.oreilly.com/learning/perform-sentiment-analysis-with-lstms-using-ten
 ## What does tf.nn.embedding_lookup function do?
 https://stackoverflow.com/questions/34870614/what-does-tf-nn-embedding-lookup-function-do
 
+## How to One Hot encode categorical sequence data in python
+https://machinelearningmastery.com/how-to-one-hot-encode-sequence-data-in-python/
+
 # steps
 
 1. Create word2vec from text
     > python3 clear_create_word2vec.py 
 
-2. Convert word2vec file to ids matrix as an numpy file format in order to use with tensorflow
+2. Convert word2vec file to ids matrix as a numpy file format in order to use with tensorflow
     > python3 numpy_embedding_matrix_tf.py
 
 3. Use embedding matrix with tensorflow in eager mode
