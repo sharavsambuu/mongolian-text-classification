@@ -29,8 +29,10 @@ for text_sentence in text_sentences:
 
 from gensim.models import Word2Vec
 model = Word2Vec(sentences, min_count=1)
+model.save('model.bin')
 print(model)
 words = list(model.wv.vocab)
 print(words)
 print(model['дээд'])
-model.save('model.bin')
+
+import pdb; pdb.set_trace()
