@@ -23,8 +23,8 @@ https://stackoverflow.com/questions/34870614/what-does-tf-nn-embedding-lookup-fu
 2. Convert word2vec file to ids matrix as an numpy file format in order to use with tensorflow
     > python3 numpy_embedding_matrix_tf.py
 
-3. Use embedding matrix with tensorflow 
-    In progress...
+3. Use embedding matrix with tensorflow in eager mode
+    > python3 convert_text_to_seqvector_through_embedmatrix.py
 
 # TODOs
 
