@@ -15,5 +15,5 @@ for i in range(len(model.wv.vocab)):
 
 np.save('ids_matrix', embedding_matrix)
 #import pdb; pdb.set_trace()
-print('embedded ids matrix is saved as an numpy file format.')
+print('embedded ids matrix is saved as a numpy file format.')
 
