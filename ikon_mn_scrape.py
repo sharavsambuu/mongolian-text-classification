@@ -20,7 +20,6 @@ class IkonSpider(scrapy.Spider):
                 root_link+'/l/2',
                 "economy"
             ),
-
             (
                 # нийгэм
                 root_link+'/l/3',
@@ -39,7 +38,7 @@ class IkonSpider(scrapy.Spider):
             (
                 # технологи
                 root_link+'/l/7',
-                "world"
+                "technology"
             ),
         ]
         for index, url_tuple in enumerate(start_urls):
