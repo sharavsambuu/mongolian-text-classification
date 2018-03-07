@@ -8,6 +8,12 @@ root_link = "http://ikon.mn"
 
 class IkonSpider(scrapy.Spider):
     name='ikonspider'
+    robotstxt_obey = True
+    download_delay = 0.5
+    user_agent = 'sharavaa-crawler (sharavsambuu@gmail.com)'
+    autothrottle_enabled = True
+    httpcache_enabled = True
+
     def start_requests(self):
         start_urls = [
             (
