@@ -1,0 +1,11 @@
+Дараагийн хуудас
+$('.ikon-right-dir').trigger('click');
+
+Хуудсан дахь item-үүдийн жагсаалт
+$('.nlitem')
+
+Item-ээс холбоос хаягийг нь авах
+$($('.nlitem')[0]).find('a')[0]
+
+XPath хэрэглэж item ийн холбоосыг авах
+item_link = response.selector.xpath("//*[contains(@class, 'nlitem')]//a/@href").extract()[0]

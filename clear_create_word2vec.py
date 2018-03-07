@@ -16,4 +16,4 @@ print('word2vec model is saved as gensim file format.')
 #print(words)
 #print(model['дээд'])
 
-#import pdb; pdb.set_trace()
+import pdb; pdb.set_trace()

@@ -17,6 +17,7 @@ https://stackoverflow.com/questions/34870614/what-does-tf-nn-embedding-lookup-fu
 
 ## How to One Hot encode categorical sequence data in python
 https://machinelearningmastery.com/how-to-one-hot-encode-sequence-data-in-python/
+https://www.tensorflow.org/api_docs/python/tf/one_hot
 
 # steps
 
