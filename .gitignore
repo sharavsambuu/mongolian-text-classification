@@ -108,3 +108,6 @@ venv.bak/
 model.bin
 quotes.json
 ids_matrix.npy
+
+corpuses/economy
+corpuses/politics

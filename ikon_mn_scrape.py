@@ -1,6 +1,8 @@
 import scrapy
 from scrapy import Request
 from scrapy.shell import inspect_response
+import json, os
+from hashlib import md5
 
 root_link = "http://ikon.mn"
 
@@ -34,11 +36,21 @@ class IkonSpider(scrapy.Spider):
             #url = response.request.url
             #print(url)
         else:
-            news_title = news_title[0]
-            news_body  = response.xpath("//*[contains(@class, 'icontent')]/descendant::*/text()[normalize-space() and not(ancestor::a | ancestor::script | ancestor::style)]").extract()
-            news_body  = news_body[0]
-            category   = response.meta.get('category', 'default')
-            print("CATEGORY : ", category)
+            news_title  = news_title[0].strip()
+            news_body   = response.xpath("//*[contains(@class, 'icontent')]/descendant::*/text()[normalize-space() and not(ancestor::a | ancestor::script | ancestor::style)]").extract()
+            news_body   = news_body[0]
+            category    = response.meta.get('category', 'default')
+            url         = response.request.url
+            hashed_name = md5(news_title.encode("utf-8")).hexdigest()
+            file_name = "./corpuses/"+category+"/"+hashed_name+".txt"
+            print("saving to ", file_name)
+            data = {}
+            data['title'] = news_title
+            data['body' ] = news_body
+            data['url'  ] = url
+            os.makedirs(os.path.dirname(file_name), exist_ok=True)
+            with open(file_name, "w", encoding="utf8") as outfile:
+                json.dump(data, outfile, ensure_ascii=False)
 
         for next_page in response.xpath("//*[contains(@class, 'nlitem')]//a"):
             yield response.follow(next_page, self.parse, meta={'category': response.meta.get('category', 'default')})
