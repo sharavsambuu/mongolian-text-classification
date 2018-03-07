@@ -16,9 +16,30 @@ class IkonSpider(scrapy.Spider):
                 "politics"
             ),
             (
-                # улс төр
+                # эдийн засаг
                 root_link+'/l/2',
                 "economy"
+            ),
+
+            (
+                # нийгэм
+                root_link+'/l/3',
+                "society"
+            ),
+            (
+                # эрүүл мэнд
+                root_link+'/l/16',
+                "health"
+            ),
+            (
+                # дэлхийд
+                root_link+'/l/4',
+                "world"
+            ),
+            (
+                # технологи
+                root_link+'/l/7',
+                "world"
             ),
         ]
         for index, url_tuple in enumerate(start_urls):

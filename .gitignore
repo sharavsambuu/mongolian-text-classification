@@ -109,5 +109,9 @@ model.bin
 quotes.json
 ids_matrix.npy
 
-corpuses/economy
 corpuses/politics
+corpuses/economy
+corpuses/society
+corpuses/health
+corpuses/world
+corpuses/technology
