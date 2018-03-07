@@ -21,14 +21,18 @@ https://www.tensorflow.org/api_docs/python/tf/one_hot
 
 # steps
 
-1. Create word2vec from text
+- Create word2vec from text
     > python3 clear_create_word2vec.py 
 
-2. Convert word2vec file to ids matrix as a numpy file format in order to use with tensorflow
+- Convert word2vec file to ids matrix as a numpy file format in order to use with tensorflow
     > python3 numpy_embedding_matrix_tf.py
 
-3. Use embedding matrix with tensorflow in eager mode
+- Use embedding matrix with tensorflow in eager mode
     > python3 convert_text_to_seqvector_through_embedmatrix.py
+
+- Run spider
+    > scrapy runspider ikon_mn_scrape.py
+
 
 # TODOs
 
