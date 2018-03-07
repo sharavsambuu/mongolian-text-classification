@@ -9,3 +9,6 @@ $($('.nlitem')[0]).find('a')[0]
 
 XPath хэрэглэж item ийн холбоосыг авах
 item_link = response.selector.xpath("//*[contains(@class, 'nlitem')]//a/@href").extract()[0]
+
+
+Scrape хийхэд хэдхэн минут болсон бөгөөд нийтдээ 5-н категоритой 6086 файл үүслээ
