@@ -3,13 +3,6 @@ from gensim.models import Word2Vec
 import glob, json
 
 # корпусыг ачаалах
-'''
-filename = 'corpuses/ikon-news01.txt'
-file = open(filename, 'rt')
-text = file.read()
-file.close()
-'''
-
 all_corpuses = ""
 
 print("reading all corpuses, please wait for a little while...")
@@ -28,6 +21,7 @@ model = Word2Vec(sentences, min_count=1)
 model.save('model.bin')
 print('word2vec model is saved as gensim file format.')
 #words = list(model.wv.vocab)
+
 #print(words)
 #print(model['дээд'])
 #import pdb; pdb.set_trace()
