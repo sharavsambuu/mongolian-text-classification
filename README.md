@@ -27,7 +27,7 @@ https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrap
 - Run spider in order to collect corpuses and labels from ikon.mn
     > scrapy runspider ikon_mn_scrape.py
 
-- Create word2vec from text
+- Create word2vec from all files inside 'corpuses' directory
     > python3 clear_create_word2vec.py 
 
 - Convert word2vec file to ids matrix as a numpy file format in order to use with tensorflow

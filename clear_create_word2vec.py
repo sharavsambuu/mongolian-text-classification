@@ -9,7 +9,7 @@ print("reading all corpuses, please wait for a little while...")
 for filename in glob.iglob('corpuses/**/*.txt', recursive=True):
     with open(filename, 'r') as f:
         json_content = json.load(f)
-        all_corpuses = all_corpuses + " " +json_content['title'] + " \n "+json_content["body"]+" \n "
+        all_corpuses = all_corpuses + " " +json_content['title'] + ". \n "+json_content["body"]+". \n "
 print("reading is done.")
 
 print("converting to the sentence array...")
