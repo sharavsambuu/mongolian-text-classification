@@ -10,7 +10,7 @@ class IkonSpider(scrapy.Spider):
     name='ikonspider'
     robotstxt_obey = True
     download_delay = 0.5
-    user_agent = 'sharavaa-crawler (sharavsambuu@gmail.com)'
+    user_agent = 'sharavaa-crawler-for-nlp (sharavsambuu@gmail.com)'
     autothrottle_enabled = True
     httpcache_enabled = True
 
@@ -64,7 +64,7 @@ class IkonSpider(scrapy.Spider):
         else:
             news_title  = news_title[0].strip()
             news_body   = response.xpath("//*[contains(@class, 'icontent')]/descendant::*/text()[normalize-space() and not(ancestor::a | ancestor::script | ancestor::style)]").extract()
-            news_body   = news_body[0]
+            news_body   = " ".join(news_body)
             category    = response.meta.get('category', 'default')
             url         = response.request.url
             hashed_name = md5(news_title.encode("utf-8")).hexdigest()
