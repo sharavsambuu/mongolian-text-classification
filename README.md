@@ -19,6 +19,9 @@ https://stackoverflow.com/questions/34870614/what-does-tf-nn-embedding-lookup-fu
 https://machinelearningmastery.com/how-to-one-hot-encode-sequence-data-in-python/
 https://www.tensorflow.org/api_docs/python/tf/one_hot
 
+## How to crawl the web politely with scrapy
+https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy/
+
 # steps
 
 - Create word2vec from text
