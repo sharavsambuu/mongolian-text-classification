@@ -51,12 +51,16 @@ with tf.Session() as sess:
     saver   = tf.train.Saver()
     sess.run(init)
 
-    import pdb; pdb.set_trace()
-
     for i in range(iterations):
         next_input_batch, next_label_batch = dataset.get_training_batch(batch_size, max_seq_length)
         sess.run(optimizer, feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
         if (i%50 == 0):
+            acc = sess.run(accuracy, feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
+            los = sess.run(loss    , feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
+            print("Iteration : ", i  )
+            print("Accuracy  : ", acc)
+            print("Loss      : ", los)
+            print("___________________________________")
             summary = sess.run(merged, {input_placeholder: next_input_batch, label_placeholder: next_label_batch})
             writer.add_summary(summary, i)
         if (i%10000 == 0 and i != 0):

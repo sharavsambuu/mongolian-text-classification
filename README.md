@@ -39,6 +39,9 @@ https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrap
 - Prepare training and testing dataset
     > python3 prepare_trainingset.py
 
+- Train lstm recurrent neural network for news classification
+    > python3 training_lstm_neural_network.py
+
 
 
 # TODOs
