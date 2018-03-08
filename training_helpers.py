@@ -61,4 +61,4 @@ class DataSetHelper():
             batch_labels.append(one_hot)
         return (batch_arr, batch_labels)
 
-import pdb; pdb.set_trace()
+#import pdb; pdb.set_trace()
