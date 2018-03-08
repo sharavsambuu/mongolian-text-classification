@@ -36,6 +36,9 @@ https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrap
 - Use embedding matrix with tensorflow in eager mode
     > python3 convert_text_to_seqvector_through_embedmatrix.py
 
+- Prepare training and testing dataset
+    > python3 prepare_trainingset.py
+
 
 
 # TODOs

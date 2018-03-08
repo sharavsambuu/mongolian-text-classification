@@ -4,6 +4,7 @@ import shutil
 import glob, os, os.path
 import random
 import math
+import json
 
 import numpy as np
 import tensorflow as tf
@@ -61,12 +62,19 @@ random.shuffle(global_corpuses)
 random.shuffle(global_corpuses)
 
 split_location = math.floor(80*len(global_corpuses)/100) # 80% for training, 20% for testing
-training_set = global_corpuses[:split_location]
-test_set     = global_corpuses[split_location:]
+training_set   = global_corpuses[:split_location]
+test_set       = global_corpuses[split_location:]
+dataset_info   = {
+    'training' : training_set,
+    'testing'  : test_set
+}
 
 temp_corpus_dir = 'temp_corpuses'
 if os.path.exists(temp_corpus_dir):
     shutil.rmtree(temp_corpus_dir)
 os.makedirs(temp_corpus_dir)
 
-import pdb; pdb.set_trace()
+with open("temp_corpuses/dataset.json", "w", encoding="utf8") as outfile:
+    json.dump(dataset_info, outfile, ensure_ascii=False)
+
+#import pdb; pdb.set_trace()
