@@ -1,11 +1,18 @@
 from os import listdir
 from os.path import isfile, join
-import tensorflow as tf
+import shutil
+import glob, os, os.path
+import random
+import math
+
 import numpy as np
+import tensorflow as tf
+import tensorflow.contrib.eager as tfe
+
+from gensim.models import Word2Vec
+
 from wordtoken_to_id import *
 from clear_text_to_array import *
-from gensim.models import Word2Vec
-import tensorflow.contrib.eager as tfe
 
 tfe.enable_eager_execution()
 
@@ -30,13 +37,36 @@ for index, word in enumerate(sentence_array):
         print("exception at index ", index, " word at ", word)
         pass
 
-print(ids_of_sentence)
-print(ids_of_sentence.shape)
+#print(ids_of_sentence)
+#print(ids_of_sentence.shape)
 
 embeddings_tf    = tf.constant(ids_matrix)
 ids_tf           = tf.constant(ids_of_sentence)
 sequence_vectors = tf.nn.embedding_lookup(embeddings_tf, ids_tf)
 
-print(sequence_vectors)
-import pdb; pdb.set_trace()
+#print(sequence_vectors)
 
+global_corpuses = []
+
+for filename in glob.iglob('corpuses/**/*.txt', recursive=True):
+    current_file_path      = os.path.abspath(filename)
+    current_directory      = os.path.abspath(os.path.join(current_file_path, os.pardir))
+    current_directory_name = os.path.split(current_directory)
+    category               = current_directory_name[1]
+    only_file_name         = os.path.basename(filename)
+    global_corpuses.append((category, only_file_name))
+
+random.shuffle(global_corpuses)
+random.shuffle(global_corpuses)
+random.shuffle(global_corpuses)
+
+split_location = math.floor(80*len(global_corpuses)/100) # 80% for training, 20% for testing
+training_set = global_corpuses[:split_location]
+test_set     = global_corpuses[split_location:]
+
+temp_corpus_dir = 'temp_corpuses'
+if os.path.exists(temp_corpus_dir):
+    shutil.rmtree(temp_corpus_dir)
+os.makedirs(temp_corpus_dir)
+
+import pdb; pdb.set_trace()
