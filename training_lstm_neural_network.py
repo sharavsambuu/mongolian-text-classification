@@ -51,6 +51,8 @@ with tf.Session() as sess:
     saver   = tf.train.Saver()
     sess.run(init)
 
+    import pdb; pdb.set_trace()
+
     for i in range(iterations):
         next_input_batch, next_label_batch = dataset.get_training_batch(batch_size, max_seq_length)
         sess.run(optimizer, feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})

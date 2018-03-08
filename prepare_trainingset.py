@@ -62,7 +62,23 @@ def convert_to_onehot(name):
     }
     return switcher.get(name, lambda: [0,0,0,0,0,0])()
 
+def fix_news_body(filename):
+    found = False
+    jsoncontent = ""
+    with open(filename) as f:
+        jsoncontent = json.load(f)
+        body        = jsoncontent['body'].strip()
+        if not body:
+            print("YES EMPTY BODY FOUND...")
+            found = True
+            jsoncontent['body'] = jsoncontent['title']
+    if found:
+        with open(filename, "w", encoding="utf8") as outfile:
+            print("FIXING...", filename)
+            json.dump(jsoncontent, outfile, ensure_ascii=False)
+
 for filename in glob.iglob('corpuses/**/*.txt', recursive=True):
+    fix_news_body(filename) # some news body is empty, fix it by replacing its title
     current_file_path      = os.path.abspath(filename)
     current_directory      = os.path.abspath(os.path.join(current_file_path, os.pardir))
     current_directory_name = os.path.split(current_directory)

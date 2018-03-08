@@ -19,7 +19,11 @@ class DataSetHelper():
         pass
 
     def sentence_to_ids(self, sentence, max_seq_length):
+        #print("========SENTENCE=======")
+        #print(sentence)
         sentence_array  = clear_text_to_array(sentence)[0]
+        #print("========SENTENCEARR====")
+        #print(sentence_array)
         sentence_array  = sentence_array[:max_seq_length]
         ids_of_sentence = np.zeros((max_seq_length), dtype='int32')
         for index, word in enumerate(sentence_array):
@@ -40,6 +44,9 @@ class DataSetHelper():
             file_path     = "corpuses/"+category+"/"+file_name
             with open(file_path) as f:
                 sentence = json.load(f)['body']
+                #print("##########################")
+                #print(file_path)
+                #print(sentence)
                 ids_of_sentence = self.sentence_to_ids(sentence, max_seq_length)
                 batch_arr[i] = ids_of_sentence
             batch_labels.append(one_hot)
@@ -61,4 +68,8 @@ class DataSetHelper():
             batch_labels.append(one_hot)
         return (batch_arr, batch_labels)
 
+#batch_size, seq_length = 50, 500
+#dataset = DataSetHelper()
+#for i in range(10000):
+#    inp, label = dataset.get_training_batch(batch_size, seq_length)
 #import pdb; pdb.set_trace()
