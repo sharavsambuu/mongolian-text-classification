@@ -43,10 +43,12 @@ https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrap
     > python3 training_lstm_neural_network.py
 
 
+# DONE
+- Write some scrapers for ikon.mn
+- Prepare training texts with its labels, label should be a type of news. For example: politics, economy, society, health, world, technology etc
+
+# IN PROGRESS
+- Train lstm classifier
 
 # TODOs
-
-1. Write some scrapers for ikon.mn
-2. Prepare training texts with its labels, label should be a type of news. For example: politics, economy, society, health, world, technology etc
-3. Train them
-4. Try to classify text from other sites, for example: news.gogo.mn
+- Try to classify text from other sites, for example: news.gogo.mn
