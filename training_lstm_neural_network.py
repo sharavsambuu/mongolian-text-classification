@@ -7,7 +7,7 @@ lstm_units     = 128
 num_classes    = 6
 max_seq_length = 500
 vector_length  = 100 # word2vec dimensions
-iterations     = 100 # 100000
+iterations     = 1000 # 100000
 
 dataset = DataSetHelper() 
 
@@ -21,6 +21,7 @@ embeddings_tf = tf.constant(ids_matrix)
 
 batch_data = tf.Variable(tf.zeros([batch_size, max_seq_length, vector_length]), dtype=tf.float32)
 batch_data = tf.nn.embedding_lookup(embeddings_tf, input_placeholder)
+batch_data = tf.cast(batch_data, tf.float32) # https://github.com/tensorflow/tensorflow/issues/8281
 
 lstm_cell  = tf.contrib.rnn.BasicLSTMCell(lstm_units)
 lstm_cell  = tf.contrib.rnn.DropoutWrapper(cell=lstm_cell, output_keep_prob=0.75)
@@ -36,7 +37,7 @@ correct_prediction = tf.equal(tf.argmax(prediction, 1), tf.argmax(label_placehol
 accuracy           = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 loss      = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits=prediction, labels=label_placeholder))
-optimizer = tf.train.AdapOptimizer().minimize(loss)
+optimizer = tf.train.AdamOptimizer().minimize(loss)
 
 import datetime
 tf.summary.scalar('Loss '    , loss    )
