@@ -43,10 +43,22 @@ class DataSetHelper():
                 ids_of_sentence = self.sentence_to_ids(sentence, max_seq_length)
                 batch_arr[i] = ids_of_sentence
             batch_labels.append(one_hot)
-        return batch_arr, batch_labels
+        return (batch_arr, batch_labels)
 
-    def get_testing_batch(self, batch_size):
-        labels = []
-        pass
+    def get_testing_batch(self, batch_size, max_seq_length):
+        batch_labels = []
+        batch_arr = np.zeros([batch_size, max_seq_length])
+        for i in range(batch_size):
+            random_corpus = random.choice(self.testing_set)
+            file_name     = random_corpus[0]
+            one_hot       = random_corpus[1]
+            category      = random_corpus[2]
+            file_path     = "corpuses/"+category+"/"+file_name
+            with open(file_path) as f:
+                sentence = json.load(f)['body']
+                ids_of_sentence = self.sentence_to_ids(sentence, max_seq_length)
+                batch_arr[i] = ids_of_sentence
+            batch_labels.append(one_hot)
+        return (batch_arr, batch_labels)
 
 import pdb; pdb.set_trace()
