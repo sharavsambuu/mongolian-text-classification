@@ -49,13 +49,25 @@ sequence_vectors = tf.nn.embedding_lookup(embeddings_tf, ids_tf)
 
 global_corpuses = []
 
+def convert_to_onehot(name):
+    switcher = {
+        "economy"    : lambda: [1,0,0,0,0,0],
+        "health"     : lambda: [0,1,0,0,0,0],
+        "politics"   : lambda: [0,0,1,0,0,0],
+        "society"    : lambda: [0,0,0,1,0,0],
+        "technology" : lambda: [0,0,0,0,1,0],
+        "world"      : lambda: [0,0,0,0,0,1]
+    }
+    return switcher.get(name, lambda: [0,0,0,0,0,0])()
+
 for filename in glob.iglob('corpuses/**/*.txt', recursive=True):
     current_file_path      = os.path.abspath(filename)
     current_directory      = os.path.abspath(os.path.join(current_file_path, os.pardir))
     current_directory_name = os.path.split(current_directory)
     category               = current_directory_name[1]
+    one_hot                = convert_to_onehot(category)
     only_file_name         = os.path.basename(filename)
-    global_corpuses.append((category, only_file_name))
+    global_corpuses.append((only_file_name, one_hot, category))
 
 random.shuffle(global_corpuses)
 random.shuffle(global_corpuses)
