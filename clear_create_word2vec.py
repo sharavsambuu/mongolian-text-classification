@@ -41,6 +41,7 @@ print("------------------------------------"             )
 
 
 print("converting to the sentence array...")
+all_corpuses = all_corpuses + ".АННОУНҮГ."
 sentences = clear_text_to_array(all_corpuses)
 print('done.')
 
