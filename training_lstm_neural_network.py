@@ -6,8 +6,8 @@ batch_size     = 24
 lstm_units     = 128
 num_classes    = 6
 max_seq_length = 500
-vector_length  = 100 # word2vec dimensions
-iterations     = 1000 # 100000
+vector_length  = 100    # word2vec dimensions
+iterations     = 100000 # 100000
 
 dataset = DataSetHelper() 
 
@@ -57,10 +57,10 @@ with tf.Session() as sess:
         if (i%50 == 0):
             acc = sess.run(accuracy, feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
             los = sess.run(loss    , feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
+            print("___________________________________")
             print("Iteration : ", i  )
             print("Accuracy  : ", acc)
             print("Loss      : ", los)
-            print("___________________________________")
             summary = sess.run(merged, {input_placeholder: next_input_batch, label_placeholder: next_label_batch})
             writer.add_summary(summary, i)
         if (i%10000 == 0 and i != 0):
