@@ -34,24 +34,24 @@ Mongolian text classifier in tensorflow.
 
 # RESOURCEs
 
-## develop word embeddings python gensim
-https://machinelearningmastery.com/develop-word-embeddings-python-gensim/
+- develop word embeddings python gensim
+    > https://machinelearningmastery.com/develop-word-embeddings-python-gensim/
 
-## how to clean text for machine learning with python
-https://machinelearningmastery.com/clean-text-machine-learning-python/
+- how to clean text for machine learning with python
+    > https://machinelearningmastery.com/clean-text-machine-learning-python/
 
-## using gensim word2vec embeddings in tensorflow
-http://adventuresinmachinelearning.com/gensim-word2vec-tutorial/
+- using gensim word2vec embeddings in tensorflow
+    > http://adventuresinmachinelearning.com/gensim-word2vec-tutorial/
 
-## perform sentimental analysis with lstms using tensorflow
-https://www.oreilly.com/learning/perform-sentiment-analysis-with-lstms-using-tensorflow
+- perform sentimental analysis with lstms using tensorflow
+    > https://www.oreilly.com/learning/perform-sentiment-analysis-with-lstms-using-tensorflow
 
-## What does tf.nn.embedding_lookup function do?
-https://stackoverflow.com/questions/34870614/what-does-tf-nn-embedding-lookup-function-do
+- What does tf.nn.embedding_lookup function do?
+    > https://stackoverflow.com/questions/34870614/what-does-tf-nn-embedding-lookup-function-do
 
-## How to One Hot encode categorical sequence data in python
-https://machinelearningmastery.com/how-to-one-hot-encode-sequence-data-in-python/
-https://www.tensorflow.org/api_docs/python/tf/one_hot
+- How to One Hot encode categorical sequence data in python
+    > https://machinelearningmastery.com/how-to-one-hot-encode-sequence-data-in-python/
+    > https://www.tensorflow.org/api_docs/python/tf/one_hot
 
-## How to crawl the web politely with scrapy
-https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy/
+- How to crawl the web politely with scrapy
+    > https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy/
