@@ -15,6 +15,7 @@ from gensim.models import Word2Vec
 from wordtoken_to_id import *
 from clear_text_to_array import *
 
+'''
 tfe.enable_eager_execution()
 
 max_sequence_length = 500
@@ -46,6 +47,7 @@ ids_tf           = tf.constant(ids_of_sentence)
 sequence_vectors = tf.nn.embedding_lookup(embeddings_tf, ids_tf)
 
 #print(sequence_vectors)
+'''
 
 global_corpuses = []
 
