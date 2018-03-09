@@ -1,0 +1,5 @@
+some stopwords list
+https://github.com/Xangis/extra-stopwords/blob/master/mongolia
+
+stemmers and some stopwords for mongolian language
+https://github.com/erkhemee/chatbot-ub-hackathon
