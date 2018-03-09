@@ -2,10 +2,10 @@ Mongolian text classifier in tensorflow.
 
 # STEPS
 
-- Run spider in order to collect corpuses and labels from ikon.mn
-  Download corpus from here, let's respect ikon.mn, scraping can be troubling.
-    > https://drive.google.com/file/d/14NvUkqZRapivmiWc2WOOwIEu9UWyYnnJ/view?usp=sharing
+- Run spider in order to collect corpuses and labels from ikon.mn 
     > scrapy runspider ikon_mn_scrape.py
+    > Download corpus from here, let's respect ikon.mn, scraping can be troubling. 
+    https://drive.google.com/file/d/14NvUkqZRapivmiWc2WOOwIEu9UWyYnnJ/view?usp=sharing
 
 - Create word2vec from all files inside 'corpuses' directory
     > python3 clear_create_word2vec.py 
