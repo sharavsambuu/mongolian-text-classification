@@ -3,7 +3,7 @@ import numpy as np
 from training_helpers import *
 
 batch_size     = 24
-lstm_units     = 128
+lstm_units     = 64
 num_classes    = 6
 max_seq_length = 500
 vector_length  = 100    # word2vec dimensions
