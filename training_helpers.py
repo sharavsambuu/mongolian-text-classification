@@ -10,8 +10,9 @@ from clear_text_to_array import *
 
 class DataSetHelper():
     def __init__(self,):
-        self.word2vec   = Word2Vec.load('model.bin')
-        self.ids_matrix = np.load('ids_matrix.npy')
+        self.word2vec        = Word2Vec.load('model.bin')
+        self.ids_matrix      = np.load('ids_matrix.npy')
+        self.unknown_word_id = wordtoken_to_id(self.word2vec, "анноунүг")
         with open("temp_corpuses/dataset.json", "r") as f:
             self.dataset_json = json.load(f)
             self.training_set = self.dataset_json['training']
@@ -30,7 +31,7 @@ class DataSetHelper():
             try:
                 ids_of_sentence[index] = wordtoken_to_id(self.word2vec, word)
             except KeyError:
-                ids_of_sentence[index] = 102153 # unknown word, АННОУНҮГ 
+                ids_of_sentence[index] = self.unknown_word_id # unknown word, АННОУНҮГ 
         return ids_of_sentence
 
     def get_training_batch(self, batch_size, max_seq_length):

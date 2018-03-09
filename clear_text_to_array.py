@@ -22,6 +22,7 @@ def clear_text_to_array(input_text):
         # stopword уудыг хасах
         stop_words = set(stopwordsmn)
         words = [w for w in words if not w in stop_words]
+        # stemming
         words = [stemmer.stem(w) for w in words]
         sentences.append(words)
     return sentences
