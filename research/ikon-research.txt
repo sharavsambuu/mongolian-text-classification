@@ -10,6 +10,14 @@ $($('.nlitem')[0]).find('a')[0]
 XPath хэрэглэж item ийн холбоосыг авах
 item_link = response.selector.xpath("//*[contains(@class, 'nlitem')]//a/@href").extract()[0]
 
+sentiment утгуудыг авах
+let arr = []; 
+$('.reaction .value').each((index, emoji) => { 
+    let s     = $(emoji).text(); 
+    let score = isNaN(parseInt(s)) ? 0 : parseInt(s); 
+    arr.push(score) 
+});
+console.log(arr);
 
 Сургалтын өгөгдлийн статистик
 
