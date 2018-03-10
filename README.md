@@ -22,6 +22,7 @@ Mongolian text classifier in tensorflow.
 
 - Train lstm recurrent neural network for news classification
     > python3 training_bilstm_rnn.py
+    
     > python3 training_lstm_rnn.py
 
 - Freeze trained checkpoints to servable tf model
@@ -41,12 +42,11 @@ Mongolian text classifier in tensorflow.
 
 # RESOURCEs
 
-- save restore tensorflow models quick complete tutorial
+- checkpointing, save, restore and freeze tensorflow models
     > http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
-- checkpointing and reusing tensorflow models
     > https://nathanbrixius.wordpress.com/2016/05/24/checkpointing-and-reusing-tensorflow-models/
-- freeze tensorflow models
     > http://cv-tricks.com/how-to/freeze-tensorflow-models/
+
 - develop word embeddings python gensim
     > https://machinelearningmastery.com/develop-word-embeddings-python-gensim/
 
