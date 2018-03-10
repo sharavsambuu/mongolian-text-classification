@@ -41,6 +41,8 @@ Mongolian text classifier in tensorflow.
 
 # RESOURCEs
 
+- save restore tensorflow models quick complete tutorial
+    > http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
 - checkpointing and reusing tensorflow models
     > https://nathanbrixius.wordpress.com/2016/05/24/checkpointing-and-reusing-tensorflow-models/
 - freeze tensorflow models

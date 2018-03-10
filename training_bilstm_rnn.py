@@ -13,8 +13,8 @@ dataset = DataSetHelper()
 
 tf.reset_default_graph()
 
-label_placeholder = tf.placeholder(tf.float32, [batch_size, num_classes   ], name='label_placeholder')
 input_placeholder = tf.placeholder(tf.int32  , [batch_size, max_seq_length], name='input_placeholder')
+label_placeholder = tf.placeholder(tf.float32, [batch_size, num_classes   ])
 
 ids_matrix    = np.load('ids_matrix.npy')
 embeddings_tf = tf.constant(ids_matrix)
@@ -38,7 +38,7 @@ outputs, _, _ = tf.contrib.rnn.static_bidirectional_rnn(
 
 weight     = tf.Variable(tf.truncated_normal([2*lstm_units, num_classes]))
 bias       = tf.Variable(tf.constant(0.1, shape=[num_classes]))
-prediction = tf.matmul(outputs[-1], weight) + bias
+prediction = tf.add(tf.matmul(outputs[-1], weight), bias, name="prediction_op")
 
 correct_prediction = tf.equal(tf.argmax(prediction, 1), tf.argmax(label_placeholder, 1))
 accuracy           = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
