@@ -14,4 +14,7 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 class MongolianTextForm(forms.Form):
-    content = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Please copy and paste some mongolian text here...'}))
+    content = forms.CharField(
+        widget=forms.Textarea(attrs={'placeholder': 'Please copy and paste some mongolian text here...'}),
+        label=""
+    )
