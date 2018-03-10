@@ -27,12 +27,12 @@ Mongolian text classifier in tensorflow.
 # DONE
 - Write some scrapers for ikon.mn
 - Prepare training texts with its labels, label should be a type of news. For example: politics, economy, society, health, world, technology etc
+- Train lstm classifier, also other ones like bibirectional lstm
 
 # IN PROGRESS
-- Train lstm classifier
+- Try to classify text from other sites, for example: news.gogo.mn, write some web backend interface, maybe I can use django 2.0
 
 # TODOs
-- Try to classify text from other sites, for example: news.gogo.mn
 
 
 # RESOURCEs
