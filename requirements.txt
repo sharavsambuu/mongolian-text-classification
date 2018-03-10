@@ -17,6 +17,7 @@ chardet==3.0.4
 constantly==15.1.0
 cryptography==2.1.4
 cssselect==1.0.3
+Django==2.0.3
 docutils==0.14
 gast==0.2.0
 gensim==3.4.0
@@ -44,11 +45,13 @@ PyDispatcher==2.0.5
 pylint==1.8.2
 pyOpenSSL==17.5.0
 python-dateutil==2.6.1
+pytz==2018.3
 queuelib==1.4.2
 requests==2.18.4
 s3transfer==0.1.13
 scipy==1.0.0
 Scrapy==1.5.0
+scrapy-splash==0.7.2
 service-identity==17.0.0
 six==1.11.0
 smart-open==1.5.6
