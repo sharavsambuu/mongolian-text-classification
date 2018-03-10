@@ -16,36 +16,12 @@ class IkonSpider(scrapy.Spider):
 
     def start_requests(self):
         start_urls = [
-            (
-                # улс төр
-                root_link+'/l/1',
-                "politics"
-            ),
-            (
-                # эдийн засаг
-                root_link+'/l/2',
-                "economy"
-            ),
-            (
-                # нийгэм
-                root_link+'/l/3',
-                "society"
-            ),
-            (
-                # эрүүл мэнд
-                root_link+'/l/16',
-                "health"
-            ),
-            (
-                # дэлхийд
-                root_link+'/l/4',
-                "world"
-            ),
-            (
-                # технологи
-                root_link+'/l/7',
-                "technology"
-            ),
+            (root_link+'/l/1' , "politics"  ), # улс төр
+            (root_link+'/l/2' , "economy"   ), # эдийн засаг
+            (root_link+'/l/3' , "society"   ), # нийгэм
+            (root_link+'/l/16', "health"    ), # эрүүл мэнд
+            (root_link+'/l/4' , "world"     ), # дэлхийд
+            (root_link+'/l/7' , "technology"), # технологи
         ]
         for index, url_tuple in enumerate(start_urls):
             url      = url_tuple[0]
@@ -53,14 +29,9 @@ class IkonSpider(scrapy.Spider):
             yield Request(url, meta={'category': category})
 
     def parse(self, response):
-        #inspect_response(response, self)
         news_title = response.xpath("//*[contains(@class, 'inews')]//h1/text()").extract()
         if (len(news_title)==0):
             print(">>>>>>>>>>>>> I'M GROOOOOOT ")
-            #category = response.meta['category']
-            #print("category : ", category)
-            #url = response.request.url
-            #print(url)
         else:
             news_title  = news_title[0].strip()
             news_body   = response.xpath("//*[contains(@class, 'icontent')]/descendant::*/text()[normalize-space() and not(ancestor::a | ancestor::script | ancestor::style)]").extract()
@@ -78,10 +49,10 @@ class IkonSpider(scrapy.Spider):
             with open(file_name, "w", encoding="utf8") as outfile:
                 json.dump(data, outfile, ensure_ascii=False)
 
+            #import pdb; pdb.set_trace()
+
         for next_page in response.xpath("//*[contains(@class, 'nlitem')]//a"):
             yield response.follow(next_page, self.parse, meta={'category': response.meta.get('category', 'default')})
 
         for next_page in response.xpath("//*[contains(@class, 'ikon-right-dir')]/parent::a"):
             yield response.follow(next_page, self.parse, meta={'category': response.meta.get('category', 'default')})
-
-        pass
