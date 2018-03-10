@@ -119,4 +119,7 @@ corpuses/technology
 temp_corpuses/
 tensorboard/
 
+models/lstm
+models/bilstm
+
 djangoapp/db.sqlite3

@@ -65,7 +65,7 @@ with tf.Session() as sess:
             summary = sess.run(merged, {input_placeholder: next_input_batch, label_placeholder: next_label_batch})
             writer.add_summary(summary, i)
         if (i%10000 == 0 and i != 0):
-            save_path = saver.save(sess, "models/pretrained_lstm.ckpt", global_step=i)
+            save_path = saver.save(sess, "models/lstm/pretrained_lstm.ckpt", global_step=i)
             print("model is saved to %s"%save_path)
     writer.close()
 

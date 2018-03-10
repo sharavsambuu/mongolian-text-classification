@@ -13,8 +13,8 @@ dataset = DataSetHelper()
 
 tf.reset_default_graph()
 
-label_placeholder = tf.placeholder(tf.float32, [batch_size, num_classes   ])
-input_placeholder = tf.placeholder(tf.int32  , [batch_size, max_seq_length])
+label_placeholder = tf.placeholder(tf.float32, [batch_size, num_classes   ], name='label_placeholder')
+input_placeholder = tf.placeholder(tf.int32  , [batch_size, max_seq_length], name='input_placeholder')
 
 ids_matrix    = np.load('ids_matrix.npy')
 embeddings_tf = tf.constant(ids_matrix)
@@ -72,8 +72,8 @@ with tf.Session() as sess:
             print("Loss      : ", los)
             summary = sess.run(merged, {input_placeholder: next_input_batch, label_placeholder: next_label_batch})
             writer.add_summary(summary, i)
-        if (i%10000 == 0 and i != 0):
-            save_path = saver.save(sess, "models/pretrained_lstm.ckpt", global_step=i)
+        if (i%1000 == 0 and i != 0):
+            save_path = saver.save(sess, "models/bilstm/pretrained_bilstm.ckpt", global_step=i)
             print("model is saved to %s"%save_path)
     writer.close()
 
