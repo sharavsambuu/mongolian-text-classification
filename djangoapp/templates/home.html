@@ -4,5 +4,11 @@
 {% block title %}Mongolian text classification app{% endblock %}
 
 {% block content %}
-Home page
+
+<form action="/classify" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="save btn btn-default" value="Classify" />
+</form>
+
 {% endblock %}

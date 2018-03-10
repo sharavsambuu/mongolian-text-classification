@@ -4,11 +4,19 @@
 <head>
   <meta charset="utf-8">
   <title>{% block title %}Mongolian text classification app{% endblock %}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
   <main>
-    {% block content %}
-    {% endblock %}
+    <div class="content container">
+      <div class="row">
+        <div class="col-md-8">
+          {% block content %} {% endblock %}
+        </div>
+      </div>
+    </div>
   </main>
 </body>
 </html>
