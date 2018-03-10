@@ -26,7 +26,9 @@ Mongolian text classifier in tensorflow.
     > python3 training_lstm_rnn.py
 
 - Freeze trained checkpoints to servable tf model
-    > python freeze_tf_model.py
+    > python freeze_tf_model.py --name lstm --iteration 1000
+
+    > python freeze_tf_model.py --name bilstm --iteration 3000
 
 
 # DONE
