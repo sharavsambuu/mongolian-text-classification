@@ -7,6 +7,7 @@ import json
 import numpy as np
 from wordtoken_to_id import *
 from clear_text_to_array import *
+from itertools import chain
 
 class DataSetHelper():
     def __init__(self,):
@@ -20,11 +21,8 @@ class DataSetHelper():
         pass
 
     def sentence_to_ids(self, sentence, max_seq_length):
-        #print("========SENTENCE=======")
-        #print(sentence)
-        sentence_array  = clear_text_to_array(sentence)[0]
-        #print("========SENTENCEARR====")
-        #print(sentence_array)
+        sentence_array = clear_text_to_array(sentence)
+        sentence_array = list(chain(*sentence_array))
         sentence_array  = sentence_array[:max_seq_length]
         ids_of_sentence = np.zeros((max_seq_length), dtype='int32')
         for index, word in enumerate(sentence_array):
