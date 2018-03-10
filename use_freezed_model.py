@@ -3,7 +3,7 @@ from training_helpers import *
 from itertools import chain
 from clear_text_to_array import *
 
-frozen_graph = './models/bilstm/pretrained_bilstm-3000.pb'
+frozen_graph = './models/bilstm/pretrained_bilstm-1000.pb'
 
 with tf.gfile.GFile(frozen_graph, "rb") as f:
     restored_graph_def = tf.GraphDef()
@@ -26,13 +26,18 @@ with open('./corpuses_test/world_news_gogo_mn.txt', 'r') as content_file:
     content = content_file.read()
 
 max_seq_length = 500
-ids = dataset_helper.sentence_to_ids(content, max_seq_length)
+num_classes    = 6
 
-print("converting news words to ids")
-print("world news corpus")
-print(content)
-print("words ids")
-print(ids)
+word_ids = dataset_helper.sentence_to_ids(content, max_seq_length)
+
+x_batch = []
+for i in range(24):
+    x_batch.append(word_ids)
+
+x_batch = np.array(x_batch)
 
 sess = tf.Session(graph=graph)
+result = sess.run(prediction_op, feed_dict={input_placeholder: x_batch})
+print("----- RESULT -----")
+print(result)
 sess.close()
