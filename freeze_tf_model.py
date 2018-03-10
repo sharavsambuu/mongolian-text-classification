@@ -7,7 +7,7 @@ sess = tf.Session()
 saver.restore(sess, "./models/pretrained_lstm.ckpt-10000")
 
 # output variable name
-output_node_names = "prediction"
+output_node_names = "prediction:0"
 output_graph_def = tf.graph_util.convert_variables_to_constants(
     sess, input_graph_def, output_node_names.split(",")
 )

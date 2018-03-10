@@ -41,6 +41,8 @@ Mongolian text classifier in tensorflow.
 
 # RESOURCEs
 
+- checkpointing and reusing tensorflow models
+    > https://nathanbrixius.wordpress.com/2016/05/24/checkpointing-and-reusing-tensorflow-models/
 - freeze tensorflow models
     > http://cv-tricks.com/how-to/freeze-tensorflow-models/
 - develop word embeddings python gensim
