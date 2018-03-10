@@ -22,7 +22,7 @@ Mongolian text classifier in tensorflow.
 
 - Train lstm recurrent neural network for news classification
     > python3 training_bilstm_rnn.py
-    > python3 training_lstm_neural_network.py
+    > python3 training_lstm_rnn.py
 
 - Freeze trained checkpoints to servable tf model
     > python freeze_tf_model.py
