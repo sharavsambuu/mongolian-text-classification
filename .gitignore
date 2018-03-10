@@ -118,3 +118,5 @@ corpuses/technology
 
 temp_corpuses/
 tensorboard/
+
+djangoapp/db.sqlite3
