@@ -21,7 +21,11 @@ Mongolian text classifier in tensorflow.
     > python3 prepare_trainingset.py
 
 - Train lstm recurrent neural network for news classification
+    > python3 training_bilstm_rnn.py
     > python3 training_lstm_neural_network.py
+
+- Freeze trained checkpoints to servable tf model
+    > python freeze_tf_model.py
 
 
 # DONE
@@ -37,6 +41,8 @@ Mongolian text classifier in tensorflow.
 
 # RESOURCEs
 
+- freeze tensorflow models
+    > http://cv-tricks.com/how-to/freeze-tensorflow-models/
 - develop word embeddings python gensim
     > https://machinelearningmastery.com/develop-word-embeddings-python-gensim/
 
