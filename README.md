@@ -25,10 +25,18 @@ Mongolian text classifier in tensorflow.
     
     > python3 training_lstm_rnn.py
 
-- Freeze trained checkpoints to servable tf model
-    > python freeze_tf_model.py --name lstm --iteration 1000
+- Freeze trained checkpoints to servable tf model, iteration number is depends on your trained result, see models/bilstm folder after training
+    > python3 freeze_tf_model.py --name lstm --iteration 1000
 
-    > python freeze_tf_model.py --name bilstm --iteration 3000
+    > python3 freeze_tf_model.py --name bilstm --iteration 3000
+
+- Start classifier RPC server
+    > python3 use_freezed_model_rpc.py 
+
+- Start Django to see web interface
+    > cd djangoapp
+
+    > python manage.py runserver
 
 
 # DONE
