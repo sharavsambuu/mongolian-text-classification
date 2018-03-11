@@ -3,6 +3,8 @@ import numpy as np
 from training_helpers import *
 from itertools import chain
 from clear_text_to_array import *
+from xmlrpc.server import SimpleXMLRPCServer # for django app
+import sys # handle interrupt
 
 def softmax(x):
     score_math_exp = np.exp(np.asarray(x))
@@ -85,5 +87,34 @@ predict_class(sess, "./corpuses_test/health_news_gogo_mn.txt")
 print('----------------------------')
 print("trying to predict political news")
 predict_class(sess, "./corpuses_test/politics_news_ikon_mn.txt")
+
+def predict_class_from_text(content):
+    max_seq_length = 500
+
+    word_ids = dataset_helper.sentence_to_ids(content, max_seq_length)
+    x_batch = []
+    for i in range(24):
+        x_batch.append(word_ids)
+    x_batch = np.array(x_batch)
+    results = []
+
+    results_tf = sess.run(prediction_op, feed_dict={input_placeholder: x_batch})
+    for i in results_tf:
+        softmax_result = softmax(i)
+        argmax = softmax_result.argmax(axis=0)
+        name = get_class_name(argmax)
+        results.append([softmax_result, argmax, name])
+
+    return str(results[0][2])
+
+try:
+    rpc_server = SimpleXMLRPCServer(("localhost", 50001))
+    print("----------------------------")
+    print("classifier RPC server is listening on port 50001...")
+    rpc_server.register_function(predict_class_from_text, "predict_class_from_text")
+    rpc_server.serve_forever()
+except KeyboardInterrupt:
+    sess.close()
+    sys.exit()
 
 sess.close()
