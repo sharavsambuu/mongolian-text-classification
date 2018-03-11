@@ -1,9 +1,14 @@
 import tensorflow as tf
+import numpy as np
 from training_helpers import *
 from itertools import chain
 from clear_text_to_array import *
 
-frozen_graph = './models/bilstm/pretrained_bilstm-1000.pb'
+def softmax(x):
+    score_math_exp = np.exp(np.asarray(x))
+    return score_math_exp / score_math_exp.sum(0)
+
+frozen_graph = './models/bilstm/pretrained_bilstm-24000.pb'
 
 with tf.gfile.GFile(frozen_graph, "rb") as f:
     restored_graph_def = tf.GraphDef()
@@ -36,8 +41,16 @@ for i in range(24):
 
 x_batch = np.array(x_batch)
 
+print("----- X BATCH ----")
+print(x_batch)
+results = []
+
 sess = tf.Session(graph=graph)
-result = sess.run(prediction_op, feed_dict={input_placeholder: x_batch})
+results_tf = sess.run(prediction_op, feed_dict={input_placeholder: x_batch})
+for i in results_tf:
+    softmax_result = softmax(i)
+    results.append(softmax_result)
+
 print("----- RESULT -----")
-print(result)
+print(results)
 sess.close()
