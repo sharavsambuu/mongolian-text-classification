@@ -63,17 +63,27 @@ def predict_class(sess, filename):
         results.append([softmax_result, argmax, name])
 
     print("result: ", results[0][2])
+    print(results[0][0])
 
+print('----------------------------')
 print("trying to predict world news")
 predict_class(sess, "./corpuses_test/world_news_gogo_mn.txt")
 
+print('----------------------------')
 print("trying to predict economy news")
 predict_class(sess, "./corpuses_test/economy_news_gogo_mn.txt")
 
+print('----------------------------')
 print("trying to predict technology news")
 predict_class(sess, "./corpuses_test/technology_news_gogo_mn.txt")
 
+print('----------------------------')
 print("trying to predict health news")
 predict_class(sess, "./corpuses_test/health_news_gogo_mn.txt")
+
+
+print('----------------------------')
+print("trying to predict political news")
+predict_class(sess, "./corpuses_test/politics_news_ikon_mn.txt")
 
 sess.close()
