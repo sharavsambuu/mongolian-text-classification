@@ -1,3 +1,4 @@
+import datetime
 import tensorflow as tf
 import numpy as np
 from training_helpers import *
@@ -47,12 +48,12 @@ loss      = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits=pre
 optimizer = tf.train.AdamOptimizer().minimize(loss)
 #optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001).minimize(loss)
 
-import datetime
 print("starting at ", datetime.datetime.now())
-tf.summary.scalar('Loss '    , loss    )
-tf.summary.scalar('Accuracy ', accuracy)
-merged  = tf.summary.merge_all()
-log_dir = "tensorboard/"+datetime.datetime.now().strftime("%Y%m%d-%H%M%S")+"/"
+
+loss_summary                = tf.summary.scalar('Loss'                     , loss    )
+validation_accuracy_summary = tf.summary.scalar('Batch Validation Accuracy', accuracy)
+testing_accuracy_summary    = tf.summary.scalar('Testing Dataset Accuracy' , accuracy)
+log_dir = "tensorboard/bilstm/"+datetime.datetime.now().strftime("%Y%m%d-%H%M%S")+"/"
 
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
@@ -62,18 +63,26 @@ with tf.Session() as sess:
 
     for i in range(iterations):
         next_input_batch, next_label_batch = dataset.get_training_batch(batch_size, max_seq_length)
+        test_input_batch, test_label_batch = dataset.get_testing_batch (batch_size, max_seq_length)
         sess.run(optimizer, feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
         if (i%50 == 0):
             acc = sess.run(accuracy, feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
             los = sess.run(loss    , feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
+            tes = sess.run(accuracy, feed_dict={input_placeholder: test_input_batch, label_placeholder: test_label_batch})
             print("___________________________________")
-            print("Iteration : ", i  )
-            print("Accuracy  : ", acc)
-            print("Loss      : ", los)
-            summary = sess.run(merged, {input_placeholder: next_input_batch, label_placeholder: next_label_batch})
-            writer.add_summary(summary, i)
+            print("Iteration      : ", i  )
+            print("Validation acc : ", acc)
+            print("Loss           : ", los)
+            print("Test acc       : ", tes)
+            validation_accuracy_result = sess.run(validation_accuracy_summary, feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
+            testing_accuracy_result    = sess.run(testing_accuracy_summary   , feed_dict={input_placeholder: test_input_batch, label_placeholder: test_label_batch})
+            loss_result                = sess.run(loss_summary               , feed_dict={input_placeholder: next_input_batch, label_placeholder: next_label_batch})
+            writer.add_summary(validation_accuracy_result, i)
+            writer.add_summary(testing_accuracy_result   , i)
+            writer.add_summary(loss_result               , i)            
         if (i%1000 == 0 and i != 0):
             save_path = saver.save(sess, "models/bilstm/pretrained_bilstm.ckpt", global_step=i)
             print("model is saved to %s"%save_path)
     writer.close()
 
+print("ending at ", datetime.datetime.now())
