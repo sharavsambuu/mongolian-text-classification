@@ -10,7 +10,7 @@ def softmax(x):
     score_math_exp = np.exp(np.asarray(x))
     return score_math_exp / score_math_exp.sum(0)
 
-frozen_graph = './models/bilstm/pretrained_bilstm-24000.pb'
+frozen_graph = './models/bilstm/pretrained_bilstm-23000.pb'
 
 with tf.gfile.GFile(frozen_graph, "rb") as f:
     restored_graph_def = tf.GraphDef()

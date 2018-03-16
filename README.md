@@ -48,7 +48,7 @@ Mongolian text classifier in tensorflow.
 # IN PROGRESS
 
 # TODO
-
+- Implement evaluation metrics
 
 # RESOURCE
 
