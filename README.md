@@ -49,6 +49,11 @@ Mongolian text classifier in tensorflow.
 # IN PROGRESS
 
 # TODO
+- Implement stacked lstm
+- Implement stacked bidirectional lstm
+- Implement stacked bidirectional lstm with dropouts
+- Implement previous ones with batch normalization
+- Compare testing performances
 
 # RESOURCE
 
