@@ -9,7 +9,7 @@ num_classes    = 6
 max_seq_length = 500
 vector_length  = 100    # word2vec dimensions
 iterations     = 100000 # 100000
-stack_count    = 4
+stack_count    = 2
 
 dataset = DataSetHelper() 
 
@@ -36,9 +36,13 @@ stacked_rnn = tf.contrib.rnn.MultiRNNCell([
     tf.contrib.rnn.BasicLSTMCell(lstm_units)
 ])
 stacked_rnn = tf.contrib.rnn.MultiRNNCell([get_lstm(lstm_units)]*stack_count)
+stacked_rnn = tf.contrib.rnn.MultiRNNCell([tf.contrib.rnn.BasicLSTMCell(lstm_units)]*stack_count)
 """
 
-stacked_rnn = tf.contrib.rnn.MultiRNNCell([tf.contrib.rnn.BasicLSTMCell(lstm_units)]*stack_count)
+stacked_rnn = tf.contrib.rnn.MultiRNNCell([
+    tf.contrib.rnn.BasicLSTMCell(lstm_units),
+    tf.contrib.rnn.BasicLSTMCell(lstm_units)
+])
 
 value, _    = tf.nn.dynamic_rnn(stacked_rnn, batch_data, dtype=tf.float32)
 
@@ -47,6 +51,7 @@ bias       = tf.Variable(tf.constant(0.1, shape=[num_classes]))
 value      = tf.transpose(value, [1, 0, 2])
 last       = tf.gather(value, int(value.get_shape()[0]) - 1)
 prediction = tf.add(tf.matmul(last, weight), bias, name='prediction_op')
+#prediction = tf.add(tf.matmul(value[-1], weight), bias, name='prediction_op')
 
 correct_prediction = tf.equal(tf.argmax(prediction, 1), tf.argmax(label_placeholder, 1))
 accuracy           = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
