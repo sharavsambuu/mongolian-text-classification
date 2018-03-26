@@ -21,24 +21,25 @@ label_placeholder = tf.placeholder(tf.float32, [batch_size, num_classes   ])
 ids_matrix    = np.load('ids_matrix.npy')
 embeddings_tf = tf.constant(ids_matrix)
 
-batch_data = tf.Variable(tf.zeros([batch_size, max_seq_length, vector_length]), dtype=tf.float32)
-batch_data = tf.nn.embedding_lookup(embeddings_tf, input_placeholder)
-batch_data = tf.cast(batch_data, tf.float32) # https://github.com/tensorflow/tensorflow/issues/8281
+batch_data    = tf.Variable(tf.zeros([batch_size, max_seq_length, vector_length]), dtype=tf.float32)
+batch_data    = tf.nn.embedding_lookup(embeddings_tf, input_placeholder)
+batch_data    = tf.cast(batch_data, tf.float32) # https://github.com/tensorflow/tensorflow/issues/8281
 batch_unstack = tf.unstack(batch_data, max_seq_length, 1)
 
+"""
 def get_lstm(lstm_units):
     lstm_cell  = tf.contrib.rnn.BasicLSTMCell(lstm_units)
     lstm_cell  = tf.contrib.rnn.DropoutWrapper(cell=lstm_cell, output_keep_prob=0.75)
     return lstm_cell
-
 stacked_rnn = tf.contrib.rnn.MultiRNNCell([
     tf.contrib.rnn.BasicLSTMCell(lstm_units),
     tf.contrib.rnn.BasicLSTMCell(lstm_units)
 ])
-
-"""
 stacked_rnn = tf.contrib.rnn.MultiRNNCell([get_lstm(lstm_units)]*stack_count)
 """
+
+stacked_rnn = tf.contrib.rnn.MultiRNNCell([tf.contrib.rnn.BasicLSTMCell(lstm_units)]*stack_count)
+
 value, _    = tf.nn.dynamic_rnn(stacked_rnn, batch_data, dtype=tf.float32)
 
 weight     = tf.Variable(tf.truncated_normal([lstm_units, num_classes]))
@@ -60,7 +61,7 @@ loss_summary                = tf.summary.scalar('Loss'                     , los
 validation_accuracy_summary = tf.summary.scalar('Batch Validation Accuracy', accuracy)
 testing_accuracy_summary    = tf.summary.scalar('Testing Dataset Accuracy' , accuracy)
 
-log_dir = "tensorboard/lstm/"+datetime.datetime.now().strftime("%Y%m%d-%H%M%S")+"/"
+log_dir = "tensorboard/stackedlstm/"+datetime.datetime.now().strftime("%Y%m%d-%H%M%S")+"/"
 
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
@@ -88,7 +89,7 @@ with tf.Session() as sess:
             writer.add_summary(testing_accuracy_result   , i)
             writer.add_summary(loss_result               , i)
         if (i%1000 == 0 and i != 0):
-            save_path = saver.save(sess, "models/lstm/pretrained_lstm.ckpt", global_step=i)
+            save_path = saver.save(sess, "models/stackedlstm/pretrained_lstm.ckpt", global_step=i)
             print("model is saved to %s"%save_path)
     writer.close()
 
