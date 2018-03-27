@@ -9,7 +9,7 @@ num_classes    = 6
 max_seq_length = 500
 vector_length  = 100    # word2vec dimensions
 iterations     = 100000 # 100000
-stack_count    = 2
+stack_count    = 5
 
 dataset = DataSetHelper() 
 
@@ -27,26 +27,11 @@ embeddings_tf = tf.constant(ids_matrix)
 batch_data    = tf.Variable(tf.zeros([batch_size, max_seq_length, vector_length]), dtype=tf.float32)
 batch_data    = tf.nn.embedding_lookup(embeddings_tf, input_placeholder)
 batch_data    = tf.cast(batch_data, tf.float32) # https://github.com/tensorflow/tensorflow/issues/8281
-batch_unstack = tf.unstack(batch_data, max_seq_length, 1)
 
-'''
-def get_lstm(lstm_units):
-    lstm_cell  = tf.contrib.rnn.BasicLSTMCell(lstm_units)
-    lstm_cell  = tf.contrib.rnn.DropoutWrapper(cell=lstm_cell, output_keep_prob=0.75)
-    return lstm_cell
-stacked_rnn = tf.contrib.rnn.MultiRNNCell([
-    tf.contrib.rnn.BasicLSTMCell(lstm_units),
-    tf.contrib.rnn.BasicLSTMCell(lstm_units)
-])
-stacked_rnn = tf.contrib.rnn.MultiRNNCell([get_lstm(lstm_units)]*stack_count)
-stacked_rnn = tf.contrib.rnn.MultiRNNCell([tf.contrib.rnn.BasicLSTMCell(lstm_units)]*stack_count)
-'''
-
-stacked_rnn = tf.contrib.rnn.MultiRNNCell([
-    tf.contrib.rnn.BasicLSTMCell(lstm_units),
-    tf.contrib.rnn.BasicLSTMCell(lstm_units)
-])
-
+stacked_lstms = []
+for i in range(stack_count):
+    stacked_lstms.append(tf.contrib.rnn.BasicLSTMCell(lstm_units))
+stacked_rnn               = tf.contrib.rnn.MultiRNNCell(stacked_lstms)
 value_before_transpose, _ = tf.nn.dynamic_rnn(stacked_rnn, batch_data, dtype=tf.float32)
 
 weight                = tf.Variable(tf.truncated_normal([lstm_units, num_classes]))
@@ -54,14 +39,12 @@ bias                  = tf.Variable(tf.constant(0.1, shape=[num_classes]))
 value_after_transpose = tf.transpose(value_before_transpose, [1, 0, 2])
 last                  = tf.gather(value_after_transpose, int(value_after_transpose.get_shape()[0]) - 1)
 prediction            = tf.add(tf.matmul(last, weight), bias, name='prediction_op')
-#prediction = tf.add(tf.matmul(value[-1], weight), bias, name='prediction_op')
 
 correct_prediction = tf.equal(tf.argmax(prediction, 1), tf.argmax(label_placeholder, 1))
 accuracy           = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 loss      = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits=prediction, labels=label_placeholder))
 optimizer = tf.train.AdamOptimizer().minimize(loss)
-#optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001).minimize(loss)
 
 print("started at ", datetime.datetime.now())
 
@@ -102,19 +85,16 @@ with tf.Session() as sess:
             print("model is saved to %s"%save_path)
 
         print("__________________________________")
-        shape_detective(sess, input_placeholder     , explainer="input_placeholder :")
-        shape_detective(sess, label_placeholder     , explainer="label_placeholder :")
-        shape_detective(sess, embeddings_tf         , explainer="embeddings :")
-        shape_detective(sess, batch_data            , explainer="batch_data before unstacking :")
-        shape_detective(sess, batch_unstack         , explainer="batch_unstack after unstacking batch_data :")
-        shape_detective(sess, weight                , explainer="weight :")
-        shape_detective(sess, bias                  , explainer="bias :")
+        shape_detective(sess, input_placeholder     , explainer="input_placeholder                            :")
+        shape_detective(sess, label_placeholder     , explainer="label_placeholder                            :")
+        shape_detective(sess, embeddings_tf         , explainer="embeddings                                   :")
+        shape_detective(sess, batch_data            , explainer="batch_data before unstacking                 :")
+        shape_detective(sess, weight                , explainer="weight                                       :")
+        shape_detective(sess, bias                  , explainer="bias                                         :")
         shape_detective(sess, value_before_transpose, explainer="value shape before transpose stacked 2 lstms :")
-        shape_detective(sess, value_after_transpose , explainer="value shape after_transpose :")
-        shape_detective(sess, last                  , explainer="shape after gather transposed value :")
-        shape_detective(sess, prediction            , explainer="dense connection, prediction shape :")
-
-
+        shape_detective(sess, value_after_transpose , explainer="value shape after_transpose                  :")
+        shape_detective(sess, last                  , explainer="shape after gather transposed value          :")
+        shape_detective(sess, prediction            , explainer="dense connection, prediction shape           :")
 
 
     writer.close()
