@@ -15,33 +15,21 @@ dataset = DataSetHelper()
 
 tf.reset_default_graph()
 
-def shape_detective(tensor, explainer=""):
+def shape_detective(sess, tensor, explainer=""):
     print("-------------------------")
-    print(explainer, tf.shape(tensor))
+    print(explainer, sess.run(tf.shape(tensor)))
 
 input_placeholder = tf.placeholder(tf.int32  , [batch_size, max_seq_length], name='input_placeholder')
-shape_detective(input_placeholder, explainer="input_placeholder")
-
 label_placeholder = tf.placeholder(tf.float32, [batch_size, num_classes   ])
-shape_detective(label_placeholder, explainer="label_placeholder")
 
 ids_matrix    = np.load('ids_matrix.npy')
 embeddings_tf = tf.constant(ids_matrix)
-shape_detective(embeddings_tf, explainer="embeddings")
-
 batch_data    = tf.Variable(tf.zeros([batch_size, max_seq_length, vector_length]), dtype=tf.float32)
-shape_detective(batch_data, explainer="batch_data after declared")
-
 batch_data    = tf.nn.embedding_lookup(embeddings_tf, input_placeholder)
-shape_detective(batch_data, explainer="batch_data after embedding lookup")
-
 batch_data    = tf.cast(batch_data, tf.float32) # https://github.com/tensorflow/tensorflow/issues/8281
-shape_detective(batch_data, explainer="batch_data after casted")
-
 batch_unstack = tf.unstack(batch_data, max_seq_length, 1)
-shape_detective(batch_unstack, explainer="batch_unstack after unstacking batch_data")
 
-"""
+'''
 def get_lstm(lstm_units):
     lstm_cell  = tf.contrib.rnn.BasicLSTMCell(lstm_units)
     lstm_cell  = tf.contrib.rnn.DropoutWrapper(cell=lstm_cell, output_keep_prob=0.75)
@@ -52,7 +40,7 @@ stacked_rnn = tf.contrib.rnn.MultiRNNCell([
 ])
 stacked_rnn = tf.contrib.rnn.MultiRNNCell([get_lstm(lstm_units)]*stack_count)
 stacked_rnn = tf.contrib.rnn.MultiRNNCell([tf.contrib.rnn.BasicLSTMCell(lstm_units)]*stack_count)
-"""
+'''
 
 stacked_rnn = tf.contrib.rnn.MultiRNNCell([
     tf.contrib.rnn.BasicLSTMCell(lstm_units),
@@ -88,6 +76,13 @@ with tf.Session() as sess:
     writer  = tf.summary.FileWriter(log_dir, sess.graph)
     saver   = tf.train.Saver()
     sess.run(init)
+    print("detecting shape flow and changes...")
+    shape_detective(sess, input_placeholder, explainer="input_placeholder")
+    shape_detective(sess, label_placeholder, explainer="label_placeholder")
+    shape_detective(sess, embeddings_tf    , explainer="embeddings")
+    shape_detective(sess, batch_data       , explainer="batch_data before unstacking")
+    shape_detective(sess, batch_unstack    , explainer="batch_unstack after unstacking batch_data")
+    shape_detective(sess, value            , explainer="shape after wrapped dynamic rnn with two lstms")
 
     for i in range(iterations):
         next_input_batch, next_label_batch = dataset.get_training_batch(batch_size, max_seq_length)
