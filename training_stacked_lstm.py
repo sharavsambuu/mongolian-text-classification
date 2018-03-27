@@ -15,16 +15,31 @@ dataset = DataSetHelper()
 
 tf.reset_default_graph()
 
+def shape_detective(tensor, explainer=""):
+    print("-------------------------")
+    print(explainer, tf.shape(tensor))
+
 input_placeholder = tf.placeholder(tf.int32  , [batch_size, max_seq_length], name='input_placeholder')
+shape_detective(input_placeholder, explainer="input_placeholder")
+
 label_placeholder = tf.placeholder(tf.float32, [batch_size, num_classes   ])
+shape_detective(label_placeholder, explainer="label_placeholder")
 
 ids_matrix    = np.load('ids_matrix.npy')
 embeddings_tf = tf.constant(ids_matrix)
+shape_detective(embeddings_tf, explainer="embeddings")
 
 batch_data    = tf.Variable(tf.zeros([batch_size, max_seq_length, vector_length]), dtype=tf.float32)
+shape_detective(batch_data, explainer="batch_data after declared")
+
 batch_data    = tf.nn.embedding_lookup(embeddings_tf, input_placeholder)
+shape_detective(batch_data, explainer="batch_data after embedding lookup")
+
 batch_data    = tf.cast(batch_data, tf.float32) # https://github.com/tensorflow/tensorflow/issues/8281
+shape_detective(batch_data, explainer="batch_data after casted")
+
 batch_unstack = tf.unstack(batch_data, max_seq_length, 1)
+shape_detective(batch_unstack, explainer="batch_unstack after unstacking batch_data")
 
 """
 def get_lstm(lstm_units):
