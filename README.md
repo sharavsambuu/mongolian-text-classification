@@ -54,6 +54,10 @@ Mongolian text classifier in tensorflow.
 - Implement stacked bidirectional lstm with dropouts
 - Implement previous ones with batch normalization
 - Compare testing performances
+- Handle very long text through Truncated BPTT
+- Handle gradient vanishing issue with gradient clipping
+- Add attention to the lstms
+- Use an IndRNN and compare the results to previous ones
 
 # RESOURCE
 
