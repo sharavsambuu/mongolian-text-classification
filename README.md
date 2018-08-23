@@ -62,6 +62,9 @@ Mongolian text classifier in tensorflow.
 
 # RESOURCE
 
+- ImageNet moment in NLP
+    > https://thegradient.pub/nlp-imagenet/
+    
 - checkpointing, save, restore and freeze tensorflow models
     > http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
     > https://nathanbrixius.wordpress.com/2016/05/24/checkpointing-and-reusing-tensorflow-models/
