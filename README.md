@@ -49,6 +49,7 @@ Mongolian text classifier in tensorflow.
 # IN PROGRESS
 
 # TODO
+- Use transfer learning techniques such like ULMFiT, ELMo embedding etc... and compare results
 - Implement stacked lstm
 - Implement stacked bidirectional lstm
 - Implement stacked bidirectional lstm with dropouts
