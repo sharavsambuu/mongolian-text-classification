@@ -49,6 +49,8 @@ Mongolian text classifier in tensorflow.
 # IN PROGRESS
 
 # TODO
+- Evaluate current model on 20 percent of the dataset as testnig
+- Use pretrained word2vec weights from facebook's fasttext https://fasttext.cc/docs/en/crawl-vectors.html
 - Use transfer learning techniques such like ULMFiT, ELMo embedding etc... and compare results
 - Implement stacked lstm
 - Implement stacked bidirectional lstm
