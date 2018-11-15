@@ -60,7 +60,7 @@ class DataSetHelper():
             one_hot       = random_corpus[1]
             category      = random_corpus[2]
             file_path     = "corpuses/"+category+"/"+file_name
-            with open(file_path encoding="utf8") as f:
+            with open(file_path, encoding="utf8") as f:
                 sentence = json.load(f)['body']
                 ids_of_sentence = self.sentence_to_ids(sentence, max_seq_length)
                 batch_arr[i] = ids_of_sentence
