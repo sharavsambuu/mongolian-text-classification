@@ -31,7 +31,7 @@ def convert_to_onehot(name):
 def fix_news_body(filename):
     found = False
     jsoncontent = ""
-    with open(filename) as f:
+    with open(filename, encoding="utf8") as f:
         jsoncontent = json.load(f)
         body        = jsoncontent['body'].strip()
         if not body:
