@@ -123,3 +123,5 @@ models/lstm
 models/bilstm
 
 djangoapp/db.sqlite3
+
+pretrained_word2vec/
