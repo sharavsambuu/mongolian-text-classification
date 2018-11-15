@@ -26,11 +26,11 @@ batch_data = tf.cast(batch_data, tf.float32) # https://github.com/tensorflow/ten
 
 # composing bidirectional lstm
 batch_unstack = tf.unstack(batch_data, max_seq_length, 1)
-fw_lstm_cell  = tf.contrib.rnn.BasicLSTMCell(lstm_units) # forward lstm cell
-fw_lstm_cell  = tf.contrib.rnn.DropoutWrapper(cell=fw_lstm_cell, output_keep_prob=0.75)
-bw_lstm_cell  = tf.contrib.rnn.BasicLSTMCell(lstm_units) # backward lstm cell
-bw_lstm_cell  = tf.contrib.rnn.DropoutWrapper(cell=bw_lstm_cell, output_keep_prob=0.75)
-outputs, _, _ = tf.contrib.rnn.static_bidirectional_rnn(
+fw_lstm_cell  = tf.nn.rnn_cell.LSTMCell(lstm_units) # forward lstm cell
+fw_lstm_cell  = tf.nn.rnn_cell.DropoutWrapper(cell=fw_lstm_cell, output_keep_prob=0.75)
+bw_lstm_cell  = tf.nn.rnn_cell.LSTMCell(lstm_units) # backward lstm cell
+bw_lstm_cell  = tf.nn.rnn_cell.DropoutWrapper(cell=bw_lstm_cell, output_keep_prob=0.75)
+outputs, _, _ = tf.nn.static_bidirectional_rnn(
     fw_lstm_cell ,
     bw_lstm_cell ,
     batch_unstack,

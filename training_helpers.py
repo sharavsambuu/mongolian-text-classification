@@ -14,7 +14,7 @@ class DataSetHelper():
         self.word2vec        = Word2Vec.load('model.bin')
         self.ids_matrix      = np.load('ids_matrix.npy')
         self.unknown_word_id = wordtoken_to_id(self.word2vec, "анноунүг")
-        with open("temp_corpuses/dataset.json", "r") as f:
+        with open("temp_corpuses/dataset.json", "r", encoding="utf8") as f:
             self.dataset_json = json.load(f)
             self.training_set = self.dataset_json['training']
             self.testing_set  = self.dataset_json['testing' ]
@@ -41,7 +41,7 @@ class DataSetHelper():
             one_hot       = random_corpus[1]
             category      = random_corpus[2]
             file_path     = "corpuses/"+category+"/"+file_name
-            with open(file_path) as f:
+            with open(file_path, encoding="utf8") as f:
                 sentence = json.load(f)['body']
                 #print("##########################")
                 #print(file_path)
@@ -60,7 +60,7 @@ class DataSetHelper():
             one_hot       = random_corpus[1]
             category      = random_corpus[2]
             file_path     = "corpuses/"+category+"/"+file_name
-            with open(file_path) as f:
+            with open(file_path encoding="utf8") as f:
                 sentence = json.load(f)['body']
                 ids_of_sentence = self.sentence_to_ids(sentence, max_seq_length)
                 batch_arr[i] = ids_of_sentence
