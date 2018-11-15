@@ -14,7 +14,7 @@ all_words        = 0
 print("reading all corpuses, please wait for a little while...")
 
 for filename in glob.iglob('corpuses/**/*.txt', recursive=True):
-    with open(filename, 'r') as f:
+    with open(filename, 'r', encoding="utf8") as f:
         json_content = json.load(f)
         all_corpuses = all_corpuses + " " +json_content['title'] + ". \n "+json_content["body"]+". \n "
 
