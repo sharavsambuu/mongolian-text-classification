@@ -94,17 +94,3 @@ Mongolian text classifier in tensorflow.
 - How to crawl the web politely with scrapy
     > https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy/
 
-
-# SCREENSHOT
-
-- Accuracy
-    > ![alt text](https://raw.githubusercontent.com/sharavsambuu/mongolian-text-classification/master/images/accuracy.png)
-
-- Loss
-    > ![alt text](https://raw.githubusercontent.com/sharavsambuu/mongolian-text-classification/master/images/loss.png)
-
-- Web input
-    > ![alt text](https://raw.githubusercontent.com/sharavsambuu/mongolian-text-classification/master/images/webinput.png)
-
-- Mongolian text classification result
-    > ![alt text](https://github.com/sharavsambuu/mongolian-text-classification/blob/master/images/classifiedresult.png)
