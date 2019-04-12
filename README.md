@@ -3,9 +3,11 @@ Mongolian cyrillic text classification with modern tensorflow and some fine tuni
 
 # Notebooks and colab links
 On TPU mode, loading checkpoints from the file system doesn't supported by the bert and bucket should be used.
+
 Fine tuning mongolian BERT on TPU, You need own bucket in order to finetune on TPU [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1CnGd2OnNDlxe6ZUjmOa7zg__CcKk5X85)
 
-Attempt to fine tune a mongolian BERT on GPU, in development [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1u9mVeWRh7GWLONAzZ3XpJciPfv38vHaZ)
+Fine tune a mongolian BERT on GPU, a lot of computation needed, a low batch size matters due to memory limit [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1u9mVeWRh7GWLONAzZ3XpJciPfv38vHaZ)
+
 
 # useful references and resources
   - Mongolian BERT models
