@@ -1,7 +1,7 @@
 # mongolian-text-classification
 Mongolian cyrillic text classification with modern tensorflow and some fine tuning on TugsTugi's BERT model.
 
-# Notebooks and colab links
+# Fine tuning TugsTugi's Mongolian BERT model
 On TPU mode, loading checkpoints from the file system doesn't supported by the bert and bucket should be used.
 
 Fine tuning mongolian BERT on TPU, You need own bucket in order to finetune on TPU [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1CnGd2OnNDlxe6ZUjmOa7zg__CcKk5X85)
