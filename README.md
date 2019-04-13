@@ -14,7 +14,9 @@ No 01, Simplest classifier [![Open In Colab](https://colab.research.google.com/a
 
 No 02, Pretrained Word2Vec initialization from Facebook's fasttext, kind of transfer learningish. Embedding layer is not trainable in this case. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1SfwdhIoRMi4kXeAN8eUjYXKuT5zig9WV)
 
-Continueing word2vec initialization with trainable embedding layer. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WQvCa6KDOxQ2YjDdb48g4zsN60_Svbhg)
+Continuing word2vec initialization with trainable embedding layer. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WQvCa6KDOxQ2YjDdb48g4zsN60_Svbhg)
+
+No 03, 1D Convolution [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JgJN74E1w1x8RSjm9qi06uw6y0I_9k1J)
 
 # Upcoming series will include followings
 word2vec initialization, 1D Convolution, RNN variants, Attention(with visualization), Transformer, Techniques to handle longer texts and so on...
