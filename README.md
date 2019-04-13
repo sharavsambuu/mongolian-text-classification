@@ -10,7 +10,7 @@ Fine tune a mongolian BERT on GPU, a lot of computation needed, a low batch size
 
 # Classifiers using simple neural networks
 
-No 01, Simples classifier [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Ulv6tUAjOsp-jN4sTdef3lTuJb0yX4qy)
+No 01, Simplest classifier [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Ulv6tUAjOsp-jN4sTdef3lTuJb0yX4qy)
 
 # useful references and resources
   - Mongolian BERT models
