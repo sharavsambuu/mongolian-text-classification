@@ -12,6 +12,9 @@ Fine tune a mongolian BERT on GPU, a lot of computation needed, a low batch size
 
 No 01, Simplest classifier [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Ulv6tUAjOsp-jN4sTdef3lTuJb0yX4qy)
 
+# Upcoming series will include followings
+word2vec initialization, 1D Convolution, RNN variants, Attention(with visualization), Transformer, Techniques to handle longer texts and so on...
+
 # useful references and resources
   - Mongolian BERT models
     https://github.com/tugstugi/mongolian-bert
