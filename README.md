@@ -16,6 +16,8 @@ No 02, Pretrained Word2Vec initialization from Facebook's fasttext, kind of tran
 
 No 03, 1D Convolution [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JgJN74E1w1x8RSjm9qi06uw6y0I_9k1J) and multiple 1D convnets [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lTh2dG64L4aJsCip714sCA_xQgMttxOb)
 
+No 04, LSTM [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1j0MN3UTGz-990bl61n5B1mrtjnq8hSdh)
+
 # Upcoming series will include followings
 word2vec initialization, 1D Convolution, RNN variants, Attention(with visualization), Transformer, Techniques to handle longer texts and so on...
 
