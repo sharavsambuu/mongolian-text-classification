@@ -12,9 +12,7 @@ Fine tune a mongolian BERT on GPU, a lot of computation needed, a low batch size
 
 No 01, Simplest classifier [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Ulv6tUAjOsp-jN4sTdef3lTuJb0yX4qy)
 
-No 02, Pretrained Word2Vec initialization from Facebook's fasttext, kind of transfer learningish. Embedding layer is not trainable in this case. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1SfwdhIoRMi4kXeAN8eUjYXKuT5zig9WV)
-
-Continuing word2vec initialization with trainable embedding layer. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WQvCa6KDOxQ2YjDdb48g4zsN60_Svbhg)
+No 02, Pretrained Word2Vec initialization from Facebook's fasttext, kind of transfer learningish. Embedding layer is not trainable in this case [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1SfwdhIoRMi4kXeAN8eUjYXKuT5zig9WV) and with trainable embedding layer [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WQvCa6KDOxQ2YjDdb48g4zsN60_Svbhg)
 
 No 03, 1D Convolution [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JgJN74E1w1x8RSjm9qi06uw6y0I_9k1J) and multiple 1D convnets [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lTh2dG64L4aJsCip714sCA_xQgMttxOb)
 
