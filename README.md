@@ -23,6 +23,9 @@ No 05, Attention [![Open In Colab](https://colab.research.google.com/assets/cola
 # Upcoming series will include followings
 word2vec initialization, 1D Convolution, RNN variants, Attention(with visualization), Transformer, Techniques to handle longer texts and so on...
 
+# Other experiments
+Predict next word [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1urjsJUuNTnTAAAqu_eXpIkwRWUi72xp_)
+
 # useful references and resources
   - Mongolian BERT models
     https://github.com/tugstugi/mongolian-bert
