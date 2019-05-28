@@ -20,11 +20,12 @@ No 04, LSTM [![Open In Colab](https://colab.research.google.com/assets/colab-bad
 
 No 05, Attention [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10nPgRmbZsjad46CdVJKRHklestXcEpZ5)
 
+# Other experiments
+Predict next word, greedy text generation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1urjsJUuNTnTAAAqu_eXpIkwRWUi72xp_)
+
 # Upcoming series will include followings
 word2vec initialization, 1D Convolution, RNN variants, Attention(with visualization), Transformer, Techniques to handle longer texts and so on...
 
-# Other experiments
-Predict next word [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1urjsJUuNTnTAAAqu_eXpIkwRWUi72xp_)
 
 # useful references and resources
   - Mongolian BERT models
