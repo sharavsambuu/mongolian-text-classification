@@ -39,3 +39,9 @@ word2vec initialization, 1D Convolution, RNN variants, Attention, Some weights v
   - News crawler
     https://github.com/codelucas/newspaper
   
+# Images and screenshots
+
+![Alt text](images/cnn-weights/1.png?raw=true "CNN weights 1")
+![Alt text](images/cnn-weights/2.png?raw=true "CNN weights 2")
+![Alt text](images/cnn-weights/3.png?raw=true "CNN weights 3")
+![Alt text](images/cnn-weights/4.png?raw=true "CNN weights 4")
