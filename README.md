@@ -2,8 +2,11 @@
 Mongolian cyrillic text classification with modern tensorflow and some fine tuning on TugsTugi's BERT model.
 
 # Visualize Mongolian BERT using bertviz and pytorch model
-![Alt text](images/bert/mongolian-bert-attend-visualization.png?raw=true "Mongolian BERT attend")
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1UEDNlfEmXxZy1jRrE7pCTZNu8DplWVQv)
+
+![Alt text](images/bert/mongolian-bert-attend-visualization.png?raw=true "Mongolian BERT attend")
+
 
 # Fine tuning TugsTugi's Mongolian BERT model
 On TPU mode, loading checkpoints from the file system doesn't supported by the bert and bucket should be used.
