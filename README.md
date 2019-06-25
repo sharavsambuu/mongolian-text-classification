@@ -1,6 +1,10 @@
 # mongolian-text-classification
 Mongolian cyrillic text classification with modern tensorflow and some fine tuning on TugsTugi's BERT model.
 
+# Generate text using Mongolian BERT
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1jJA-YSAsbq5gbpyGYE-8p-rCzgqSU9eX)
+
 # Visualize Mongolian BERT using bertviz and pytorch model
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1UEDNlfEmXxZy1jRrE7pCTZNu8DplWVQv)
