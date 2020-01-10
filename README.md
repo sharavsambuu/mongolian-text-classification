@@ -32,7 +32,9 @@ No 03, 1D Convolution [![Open In Colab](https://colab.research.google.com/assets
 
 No 04, LSTM [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1j0MN3UTGz-990bl61n5B1mrtjnq8hSdh)
 
-No 05, LSTM with Attention [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10nPgRmbZsjad46CdVJKRHklestXcEpZ5)
+No 05, Visualize attention scores for classification with LSTM and Attention [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10nPgRmbZsjad46CdVJKRHklestXcEpZ5)
+
+No 06, Visualize RNN neuron firing in text generation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ndM1G-0qZx4wi6E9kPL1D9IjaM0pq3r9)
 
 # Other experiments
 Predict next word, greedy text generation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1urjsJUuNTnTAAAqu_eXpIkwRWUi72xp_)
