@@ -36,6 +36,10 @@ No 05, Visualize attention scores for classification with LSTM and Attention [![
 
 No 06, Visualize RNN neuron firing in text generation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ndM1G-0qZx4wi6E9kPL1D9IjaM0pq3r9)
 
+# Mongolian sentence interpolation experiments
+
+Sequence loss in keras and tf2 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1jlyB2fOi_JBAi4WPMVDJ_e8-_WHtQK_9)
+
 # Other experiments
 Predict next word, greedy text generation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1urjsJUuNTnTAAAqu_eXpIkwRWUi72xp_)
 
