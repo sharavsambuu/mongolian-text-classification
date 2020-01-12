@@ -40,6 +40,8 @@ No 06, Visualize RNN neuron firing in text generation [![Open In Colab](https://
 
 Sequence loss in keras and tf2 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1jlyB2fOi_JBAi4WPMVDJ_e8-_WHtQK_9)
 
+Variational Auto Encoder for Mongolian text [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1tBTudj9M5CGih3p8Uxj0R1SA6f3BJj-Z)
+
 # Other experiments
 Predict next word, greedy text generation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1urjsJUuNTnTAAAqu_eXpIkwRWUi72xp_)
 
