@@ -32,9 +32,15 @@ No 03, 1D Convolution [![Open In Colab](https://colab.research.google.com/assets
 
 No 04, LSTM [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1j0MN3UTGz-990bl61n5B1mrtjnq8hSdh)
 
-No 05, Visualize attention scores for classification with LSTM and Attention [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10nPgRmbZsjad46CdVJKRHklestXcEpZ5)
+Visualize RNN neuron firing in text generation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ndM1G-0qZx4wi6E9kPL1D9IjaM0pq3r9)
 
-No 06, Visualize RNN neuron firing in text generation [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ndM1G-0qZx4wi6E9kPL1D9IjaM0pq3r9)
+No 05, LSTM with Attention, visualization of attention scores in text classification [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10nPgRmbZsjad46CdVJKRHklestXcEpZ5)
+
+No 06, Classification with Mongolian BERT and Tensorflow 2.0
+
+All layers are fully trainable [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1F2ZbWfa2ctXcpcjELS3qoPdhbRYeLu0i)
+
+Frozen bert layers [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JQ87pFlGkDMbpHQp9ZSiyrQwdiRUAm-N)
 
 # Mongolian sentence interpolation experiments
 
