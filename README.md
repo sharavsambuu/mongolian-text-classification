@@ -36,7 +36,10 @@ Visualize RNN neuron firing in text generation [![Open In Colab](https://colab.r
 
 No 05, LSTM with Attention, visualization of attention scores in text classification [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10nPgRmbZsjad46CdVJKRHklestXcEpZ5)
 
-No 06, Classification with Mongolian BERT and Tensorflow 2.0, with frozen bert layers [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JQ87pFlGkDMbpHQp9ZSiyrQwdiRUAm-N) and all layers are fully trainable [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1F2ZbWfa2ctXcpcjELS3qoPdhbRYeLu0i)
+No 06, Classification with Mongolian BERT and Tensorflow 2.0, with frozen bert layers [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1JQ87pFlGkDMbpHQp9ZSiyrQwdiRUAm-N) 
+
+No 07, Classification with Mongolian BERT large and HuggingFace and Tensorflow 2 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1e8t6MZMvpoINkXtv7o1h3ESZq04pXPUv?usp=sharing) 
+
 
 
 # Mongolian sentence interpolation experiments
