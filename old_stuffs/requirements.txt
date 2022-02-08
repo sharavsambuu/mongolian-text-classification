@@ -21,7 +21,7 @@ cryptography==3.2
 cssselect==1.0.3
 decorator==4.3.0
 defusedxml==0.5.0
-Django==2.2.24
+Django==2.2.26
 docutils==0.14
 entrypoints==0.2.3
 gast==0.2.0
