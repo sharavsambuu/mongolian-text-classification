@@ -28,7 +28,7 @@ gast==0.2.0
 gensim==3.4.0
 grpcio==1.10.0
 h5py==2.8.0
-html5lib==0.9999999
+html5lib==0.99999999
 hyperlink==18.0.0
 idna==2.6
 incremental==17.5.0
